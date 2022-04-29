@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login" style="overflow:scroll; height:400px;">
+	<h1>Predict Heart Diseases (0-No,1-Yes)</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="age_days" placeholder="Age in days" required="required" />
+        <input type="text" name="age_year" placeholder="Age in years" required="required" />
+		<input type="text" name="gender" placeholder="Gender" required="required" />
+        <input type="text" name="height" placeholder="Height" required="required" />
+        <input type="text" name="weight" placeholder="Weight" required="required" />
+        <input type="text" name="ap_hi" placeholder="High Pressure" required="required" />
+        <input type="text" name="ap_lo" placeholder="Low Pressure" required="required" />
+        <input type="text" name="cholesterol" placeholder="Cholesterol" required="required" />
+        <input type="text" name="gluc" placeholder="Glucose" required="required" />
+        <input type="text" name="smoke" placeholder="Smoke" required="required" />
+        <input type="text" name="alco" placeholder="Alcohol" required="required" />
+        <input type="text" name="active" placeholder="Active" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+</body>
+</html>
